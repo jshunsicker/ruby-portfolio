@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :portfolios
+  #will bring all the resource routes, except show
+  resources :portfolios, except: [:show]
+  get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
+
   resources :blogs
 
   #declare route, then map on the right
